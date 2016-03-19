@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGoodMusic.Models", "BGoodMusic.Models\BGoodMusic.Models.csproj", "{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGoodMusic.EFDAL", "BGoodMusic.EFDAL\BGoodMusic.EFDAL.csproj", "{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF} = {2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC5NgTsDemo", "MVCDemo\MVC5NgTsDemo.csproj", "{C08187B8-B92E-4E2E-A0C1-C87CD938A1FA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635} = {32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}
+		{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE} = {84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B4A53D20-7296-4A68-8EFD-9445203F732E}"
+	ProjectSection(SolutionItems) = preProject
+		_projectNotes.txt = _projectNotes.txt
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGoodMusic.Tests", "BGoodMusic.Tests\BGoodMusic.Tests.csproj", "{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE} = {84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}
+		{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF} = {2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5E1DCE-0E6A-4C6C-BBE6-34E41F6A95BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84374A95-F20D-4D86-B5EB-6C3F6A77F8BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C08187B8-B92E-4E2E-A0C1-C87CD938A1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C08187B8-B92E-4E2E-A0C1-C87CD938A1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C08187B8-B92E-4E2E-A0C1-C87CD938A1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C08187B8-B92E-4E2E-A0C1-C87CD938A1FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

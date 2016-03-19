@@ -1,0 +1,9 @@
+Code Camp Demonstration app
+Hybrid MVC / AngularJS mini-SPA app using TypeScript
+
+A) - Set up initial structure of application MVC5NgTsDemo
+
+	Used BGoodMusic.Models from MVC5NgDemo.
+	Created fake repository in BGoodMusic.EFDAL so demo can be run without database.
+	Tweaked packages - removing some to simplify, updating others, adding new packages
+	in anticipation of AngularJS code to be added.

@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		_projectNotes.txt = _projectNotes.txt
 		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGoodMusic.Tests", "BGoodMusic.Tests\BGoodMusic.Tests.csproj", "{32D5234E-CEE1-42E2-80A5-9EE2D9D0B635}"

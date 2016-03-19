@@ -7,3 +7,5 @@ A) - Set up initial structure of application MVC5NgTsDemo
 	Created fake repository in BGoodMusic.EFDAL so demo can be run without database.
 	Tweaked packages - removing some to simplify, updating others, adding new packages
 	in anticipation of AngularJS code to be added.
+
+B) - Added initial web service for Rehearsals

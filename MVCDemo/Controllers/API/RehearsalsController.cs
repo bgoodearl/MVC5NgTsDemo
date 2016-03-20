@@ -7,7 +7,7 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BMM = BGoodMusic.Models;
-using MMA = MVCDemo.Models.API;
+using BMMA = BGoodMusic.Models.API;
 
 namespace MVCDemo.Controllers.API
 {
@@ -20,16 +20,16 @@ namespace MVCDemo.Controllers.API
         }
 
         // GET: api/Rehearsals
-        public IList<MMA.Rehearsal> GetRehearsals()
+        public IList<BMMA.Rehearsal> GetRehearsals()
         {
             try
             {
                 using (IBGoodMusicRepository repo = GetRepository())
                 {
-                    List<MMA.Rehearsal> rlist =
+                    List<BMMA.Rehearsal> rlist =
                         repo.GetRehearsals()
                         .OrderBy(r => r.Id)
-                        .Select(r => new MMA.Rehearsal
+                        .Select(r => new BMMA.Rehearsal
                         {
                             Id = r.Id,
                             Agenda = r.Agenda,
@@ -50,7 +50,7 @@ namespace MVCDemo.Controllers.API
         }
 
         // GET: api/Rehearsals/5
-        [ResponseType(typeof(MMA.Rehearsal))]
+        [ResponseType(typeof(BMMA.Rehearsal))]
         [Route("api/rehearsals/{id}")]
         public IHttpActionResult GetRehearsal(int id)
         {
@@ -61,7 +61,7 @@ namespace MVCDemo.Controllers.API
                 {
                     return NotFound();
                 }
-                return Ok(new MMA.Rehearsal
+                return Ok(new BMMA.Rehearsal
                     {
                         Id = rehearsal.Id,
                         Agenda = rehearsal.Agenda,

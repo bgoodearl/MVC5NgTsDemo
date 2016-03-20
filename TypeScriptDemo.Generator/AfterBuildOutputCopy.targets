@@ -1,0 +1,10 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="AfterBuildOutputCopy" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetDir)$(TargetFileName);"
+	DestinationFolder="$(ProjectDir)..\_Binaries" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="$(TargetDir)TypeLite.dll;"
+	DestinationFolder="$(ProjectDir)..\_Binaries" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+    <Copy SourceFiles="$(TargetDir)TypeLite.Net4.dll;"
+	DestinationFolder="$(ProjectDir)..\_Binaries" SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true" />
+  </Target>
+</Project>

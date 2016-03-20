@@ -16,3 +16,16 @@ C) - Added initial structure for Angular app
 	Added code to BundleConfig to bundle app js files.
 	Added _LayoutNg 
 	Added Music MVC controller with App method and App view.
+
+D) - Experiment with interface generation using TypeLITE
+
+	http://type.litesolutions.net/
+	(problems with tt file)
+
+	Some success with console app like
+	http://blog.simonlovely.com/archive/2014/11/09/using-typelite-to-generate-typescript.aspx
+
+	Moved API\Rehearsal from web app to separate Models assembly to get console app to work.
+
+	Generated bgoodmusic.d.ts, modified by hand to change number to Date for "date" property.
+	(Need to figure out how to better deal with date type conversion)

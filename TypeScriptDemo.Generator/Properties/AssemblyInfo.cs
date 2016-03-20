@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BGoodMusic.EFDAL")]
-[assembly: AssemblyDescription("MVC 5 / AngularJS Hybrid TypeScript Demo Fake Data Access Layer")]
+[assembly: AssemblyTitle("TypeScriptDemo.Generator")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MVC5NgTsDemo")]
-[assembly: AssemblyCopyright("Copyright © Robert Goodearl 2014-2016")]
+[assembly: AssemblyProduct("TypeScriptDemo.Generator")]
+[assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,14 +20,17 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("84374a95-f20d-4d86-b5eb-6c3f6a77f8be")]
+[assembly: Guid("e5a3931a-2ec9-4823-998e-942cf7abfd0a")]
 
 // Version information for an assembly consists of the following four values:
 //
 //      Major Version
 //      Minor Version 
-//      Build Number (yywwd) - yy=year, ww=week of year, d = day of week (0 = Sunday)
+//      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("0.2.16126.1")]
-[assembly: AssemblyFileVersion("0.2.16126.1")]
+// You can specify all the values or you can default the Build and Revision Numbers 
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

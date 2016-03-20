@@ -29,3 +29,16 @@ D) - Experiment with interface generation using TypeLITE
 
 	Generated bgoodmusic.d.ts, modified by hand to change number to Date for "date" property.
 	(Need to figure out how to better deal with date type conversion)
+
+E) - Initial implementation of music app.
+
+	appinfo.provider to get relative app paths from MVC view.
+	layout controller and html for page layout
+	naverror controller, html and route.
+	test controller, html and route.
+	app.config to set "otherwise" to naverror
+	Added js files to bundle
+	Removed extraneous div #lo-appdata that was confusing Ng app appinfo.
+
+	Defaults to test page of app  Changing route in URL or clicking on "Rehearsal List" sends app to naverror.
+

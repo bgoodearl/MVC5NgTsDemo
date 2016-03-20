@@ -3,5 +3,11 @@
 
     angular
         .module('app', [
+            'app.core',
+            'app.blocks',
+            'app.layout',
+            'app.naverror',
+            'app.services',
+            'app.test'
        ]);
 })();

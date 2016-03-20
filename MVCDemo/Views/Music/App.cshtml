@@ -12,6 +12,9 @@
 <div id="lo-appdata" data-appdata='{ "rootPath": "@Url.Content("~")", "appRootPath": "@Url.Content("~/music/app")" }' class="hidden"></div>
 <div ng-app="app">
     {{foo}}
+    <div ng-controller="app.layout.LayoutController as layout"
+         ng-include="@layoutHtml"></div>
+    <div ng-view></div>
 </div>
 @section scripts
 {

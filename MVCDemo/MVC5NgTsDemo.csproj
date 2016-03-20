@@ -163,18 +163,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\layout\layout.html" />
+    <Content Include="app\naverror\naverror.html" />
+    <Content Include="app\test\test.html" />
     <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Global.asax" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular.js" />
@@ -187,8 +192,6 @@
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular-sanitize.min.js" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -226,15 +229,22 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\_app_typings.ts" />
+    <TypeScriptCompile Include="app\app.config.ts" />
     <TypeScriptCompile Include="app\app.core.module.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
     <TypeScriptCompile Include="app\app.run.ts" />
+    <TypeScriptCompile Include="app\blocks\appinfo.provider.ts" />
     <TypeScriptCompile Include="app\blocks\blocks.module.ts" />
+    <TypeScriptCompile Include="app\layout\layout.controller.ts" />
     <TypeScriptCompile Include="app\layout\layout.module.ts" />
+    <TypeScriptCompile Include="app\naverror\naverror.controller.ts" />
     <TypeScriptCompile Include="app\naverror\naverror.module.ts" />
+    <TypeScriptCompile Include="app\naverror\naverror.routes.ts" />
     <TypeScriptCompile Include="app\rehearsallist\rehearsallist.module.ts" />
     <TypeScriptCompile Include="app\services\services.module.ts" />
+    <TypeScriptCompile Include="app\test\test.controller.ts" />
     <TypeScriptCompile Include="app\test\test.module.ts" />
+    <TypeScriptCompile Include="app\test\test.routes.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

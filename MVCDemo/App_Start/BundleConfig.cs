@@ -44,6 +44,7 @@ namespace MVCDemo
         {
             // Application root
             "app.module.js",
+            "app.config.js",
             // Modules
             "blocks/blocks.module.js",
             "layout/layout.module.js",
@@ -51,6 +52,15 @@ namespace MVCDemo
             "rehearsallist/rehearsallist.module.js",
             "services/services.module.js",
             "test/test.module.js",
+            // Services and Providers
+            "blocks/appinfo.provider.js",
+            // Controllers
+            "layout/layout.controller.js",
+            "naverror/naverror.controller.js",
+            "test/test.controller.js",
+            // Routing
+            "naverror/naverror.routes.js",
+            "test/test.routes.js",
             //Core module & Run
             "app.core.module.js",
             "app.run.js",

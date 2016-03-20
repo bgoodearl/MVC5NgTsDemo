@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutNg.cshtml";
+    ViewBag.Title = "Rehearsals (Ng)";
+    string appRoot = Url.Content("~/");
+    string layoutHtml = string.Format("'{0}app/layout/layout.html'", appRoot);
+}
+@section headend
+{
+<base href="/">
+}
+<div id="lo-appdata" data-appdata='{ "rootPath": "@Url.Content("~")", "appRootPath": "@Url.Content("~/music/app")" }' class="hidden"></div>
+<div ng-app="app">
+    {{foo}}
+</div>
+@section scripts
+{
+    <!-- app scripts -->
+    @Scripts.Render("~/bundles/appscripts")
+}

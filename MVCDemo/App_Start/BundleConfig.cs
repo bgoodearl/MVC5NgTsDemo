@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Optimization;
 
 namespace MVCDemo
@@ -23,17 +25,53 @@ namespace MVCDemo
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-#if DEBUG
+            AddAppBundle(bundles, "~/bundles/appscripts", "app", appFiles);
+
             string disableBundleOptimizationsStr = System.Configuration.ConfigurationManager.AppSettings["webd1:disableBundleOptimizations"];
-            bool disableBundleOptimizations;
+#if DEBUG
+            bool disableBundleOptimizations = true;
+            if (!string.IsNullOrWhiteSpace(disableBundleOptimizationsStr) && disableBundleOptimizationsStr.Equals("false", System.StringComparison.CurrentCultureIgnoreCase))
+                disableBundleOptimizations = false;
+#else
+            bool disableBundleOptimizations = false;
             if (!string.IsNullOrWhiteSpace(disableBundleOptimizationsStr) && disableBundleOptimizationsStr.Equals("true", System.StringComparison.CurrentCultureIgnoreCase))
                 disableBundleOptimizations = true;
-            else
-                disableBundleOptimizations = false;
-            BundleTable.EnableOptimizations = !disableBundleOptimizations;
-#else
-            BundleTable.EnableOptimizations = true;
 #endif
+            BundleTable.EnableOptimizations = !disableBundleOptimizations;
+        }
+
+        private static readonly string[] appFiles =
+        {
+            // Application root
+            "app.module.js",
+            // Modules
+            "blocks/blocks.module.js",
+            "layout/layout.module.js",
+            "naverror/naverror.module.js",
+            "rehearsallist/rehearsallist.module.js",
+            "services/services.module.js",
+            "test/test.module.js",
+            //Core module & Run
+            "app.core.module.js",
+            "app.run.js",
+        };
+
+        private static void AddAppBundle(BundleCollection bundles, string bundleName, string appDir, string[] bundleFiles)
+        {
+            var appDirFullPath = HttpContext.Current.Server.MapPath(string.Format("~/{0}", appDir));
+            if (Directory.Exists(appDirFullPath))
+            {
+                var scriptBundle = new ScriptBundle(bundleName);
+                List<string> filePaths = new List<string>();
+                foreach (string file in bundleFiles)
+                {
+                    filePaths.Add(string.Format("~/{0}/{1}", appDir, file));
+                }
+                scriptBundle.Include(
+                    filePaths.ToArray()
+                    );
+                bundles.Add(scriptBundle);
+            }
         }
     }
 }

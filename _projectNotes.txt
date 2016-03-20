@@ -9,3 +9,10 @@ A) - Set up initial structure of application MVC5NgTsDemo
 	in anticipation of AngularJS code to be added.
 
 B) - Added initial web service for Rehearsals
+
+C) - Added initial structure for Angular app
+
+	Added module typescript files - app.module.ts, etc.
+	Added code to BundleConfig to bundle app js files.
+	Added _LayoutNg 
+	Added Music MVC controller with App method and App view.

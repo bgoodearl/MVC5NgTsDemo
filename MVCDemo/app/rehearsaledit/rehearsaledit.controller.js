@@ -3,7 +3,7 @@ var app;
     var test;
     (function (test) {
         'use strict';
-        angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.05');
+        angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.08');
         var RehearsalEditController = (function () {
             function RehearsalEditController($log, $routeParams, rehearsalSvc, ctlrVer) {
                 var _this = this;
@@ -13,6 +13,14 @@ var app;
                 this.ctlrVer = ctlrVer;
                 this.message = null;
                 this.rehearsal = null;
+                this.getRehearsal = function (id) {
+                    _this.rehearsalSvc.getRehearsal(id).then(function (result) {
+                        _this.rehearsal = result;
+                        _this.message = '';
+                    }).catch(function (reason) {
+                        this.message = reason.errorMessage;
+                    });
+                };
                 this.saveEdit = function () {
                     _this.$log.log('saveEdit ' + _this.id);
                     _this.message = "Save not implemented";
@@ -20,23 +28,12 @@ var app;
                 this.id = $routeParams.id;
                 $log.log('construct RehearsalEditController v' + ctlrVer + ' id=' + this.id);
                 this.message = 'constructed RehearsalEditController';
-                var rehearsalResource = rehearsalSvc.getRehearsalResource();
-                var rehearsal = rehearsalResource.get({ id: this.id });
-                if (rehearsal) {
-                    this.rehearsal = rehearsal;
-                    if (!this.rehearsal.id) {
-                        this.$log.log("return from resource.get - rehearsal.id=" + this.rehearsal.id);
-                    }
-                    this.message = '';
-                }
-                else {
-                    this.message = "Rehearsal " + this.id + " not found.";
-                }
+                this.getRehearsal(this.id);
             }
             RehearsalEditController.$inject = [
                 '$log',
                 '$routeParams',
-                'app.services.RehearsalDataAccessService',
+                'app.services.RehearsalDataService',
                 'rehearsaledit.ctlr.ver'
             ];
             return RehearsalEditController;

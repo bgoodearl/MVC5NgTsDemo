@@ -3,7 +3,7 @@ var app;
     var rehearsllist;
     (function (rehearsllist) {
         'use strict';
-        angular.module('app.rehearsallist').constant('rehearsallist.ctlr.ver', '0.03');
+        angular.module('app.rehearsallist').constant('rehearsallist.ctlr.ver', '0.05');
         var RehearsalListController = (function () {
             function RehearsalListController($location, $log, appInfoProvider, rehearsalSvc, ctlrVer) {
                 var _this = this;
@@ -12,7 +12,17 @@ var app;
                 this.appInfoProvider = appInfoProvider;
                 this.rehearsalSvc = rehearsalSvc;
                 this.ctlrVer = ctlrVer;
+                this.appInfo = null;
+                this.message = '';
                 this.rehearsals = [];
+                this.getRehearsals = function () {
+                    _this.rehearsalSvc.getAll().then(function (result) {
+                        _this.rehearsals = result;
+                        _this.message = '';
+                    }).catch(function (reason) {
+                        this.message = reason.errorMessage;
+                    });
+                };
                 this.editRehearsal = function (id) {
                     _this.$log.log('editRehearsal: ' + id);
                     var path = _this.appInfo.appRootPath + '/edit/' + id;
@@ -21,24 +31,15 @@ var app;
                 };
                 this.message = "Constructed RehearsalListController";
                 $log.log('construct RehearsalListController ' + ctlrVer);
-                var rehearsalResource = rehearsalSvc.getRehearsalResource();
-                rehearsalResource.query(function (data) {
-                    _this.rehearsals = data;
-                    if (_this.rehearsals == null)
-                        _this.$log.log('rehearsals not set');
-                    else if (!_this.rehearsals.length)
-                        _this.$log.log('rehearsals empty');
-                    else
-                        _this.$log.log('rehearsals: ' + _this.rehearsals.length);
-                });
                 this.appInfo = appInfoProvider.appInfo;
-                $log.log('construct RehearsalListController done');
+                this.getRehearsals();
+                //$log.log('construct RehearsalListController done');
             }
             RehearsalListController.$inject = [
                 '$location',
                 '$log',
                 'app.blocks.AppInfo',
-                'app.services.RehearsalDataAccessService',
+                'app.services.RehearsalDataService',
                 'rehearsallist.ctlr.ver'
             ];
             return RehearsalListController;

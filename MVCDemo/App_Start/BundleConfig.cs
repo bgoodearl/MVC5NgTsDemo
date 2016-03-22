@@ -56,7 +56,7 @@ namespace MVCDemo
             "test/test.module.js",
             // Services and Providers
             "blocks/appinfo.provider.js",
-            "services/rehearsals.resource.js",
+            "services/rehearsalData.service.js",
             // Controllers
             "layout/layout.controller.js",
             "naverror/naverror.controller.js",

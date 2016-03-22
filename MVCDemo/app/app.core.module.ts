@@ -4,7 +4,6 @@
     angular
         .module('app.core', [
         // Angular Modules
-            'ngRoute',
-            'ngResource'
+            'ngRoute'
         ]);
 })(); 

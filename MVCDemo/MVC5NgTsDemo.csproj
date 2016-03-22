@@ -182,8 +182,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\angular-resource.js" />
-    <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -194,7 +192,6 @@
     <Content Include="Scripts\angular-sanitize.js" />
     <Content Include="Scripts\angular-sanitize.min.js" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
-    <Content Include="Scripts\angular-resource.min.js.map" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -230,12 +227,13 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\app.d.ts" />
     <TypeScriptCompile Include="app\rehearsaledit\rehearsaledit.module.ts" />
     <TypeScriptCompile Include="app\rehearsaledit\rehearsaledit.routes.ts" />
     <TypeScriptCompile Include="app\rehearsaledit\rehearsaledit.controller.ts" />
     <TypeScriptCompile Include="app\rehearsallist\rehearsallist.controller.ts" />
     <TypeScriptCompile Include="app\rehearsallist\rehearsallist.routes.ts" />
-    <TypeScriptCompile Include="app\services\rehearsals.resource.ts" />
+    <TypeScriptCompile Include="app\services\rehearsalData.service.ts" />
     <TypeScriptCompile Include="app\_app_typings.ts" />
     <TypeScriptCompile Include="app\app.config.ts" />
     <TypeScriptCompile Include="app\app.core.module.ts" />

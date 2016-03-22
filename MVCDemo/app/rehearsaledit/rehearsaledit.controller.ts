@@ -1,12 +1,12 @@
 ﻿namespace app.test {
     'use strict';
 
-    angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.05');
+    angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.08');
 
     interface IRehearsalEditController {
         id: number;
         message: string;
-        rehearsal: app.services.IRehearsalResource;
+        rehearsal: BGoodMusic.Models.API.IRehearsal;
         //***
         saveEdit(): void;
     }
@@ -18,31 +18,29 @@
     class RehearsalEditController implements IRehearsalEditController {
         public id: number;
         public message: string = null;
-        public rehearsal: app.services.IRehearsalResource = null;
+        public rehearsal: BGoodMusic.Models.API.IRehearsal = null;
         static $inject = [
             '$log',
             '$routeParams',
-            'app.services.RehearsalDataAccessService',
+            'app.services.RehearsalDataService',
             'rehearsaledit.ctlr.ver'
         ];
         constructor(private $log: ng.ILogService,
             private $routeParams: IRouteParams,
-            private rehearsalSvc: app.services.IRehearsalDataAccessService,
+            private rehearsalSvc: app.services.IRehearsalDataService,
             private ctlrVer: string) {
             this.id = $routeParams.id;
             $log.log('construct RehearsalEditController v' + ctlrVer + ' id=' + this.id);
             this.message = 'constructed RehearsalEditController';
-            let rehearsalResource = rehearsalSvc.getRehearsalResource();
-            let rehearsal: app.services.IRehearsalResource = rehearsalResource.get({ id: this.id });
-            if (rehearsal) {
-                this.rehearsal = rehearsal;
-                if (!this.rehearsal.id) {
-                    this.$log.log("return from resource.get - rehearsal.id=" + this.rehearsal.id);
-                }
+            this.getRehearsal(this.id);
+        }
+        getRehearsal = (id: number): void => {
+            this.rehearsalSvc.getRehearsal(id).then((result: BGoodMusic.Models.API.IRehearsal) => {
+                this.rehearsal = result;
                 this.message = '';
-            } else {
-                this.message = "Rehearsal " + this.id + " not found.";
-            }
+            }).catch(function (reason: app.common.IServiceError) {
+                this.message = reason.errorMessage;
+            });
         }
         saveEdit = () => {
             this.$log.log('saveEdit ' + this.id);

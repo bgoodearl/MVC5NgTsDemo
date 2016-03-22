@@ -49,3 +49,10 @@ F) - Add rehearsals controller and resource, added rehearsal edit controller.
 	added rehearsals.resource in services
 	added rehearsaledit.controller, routes and html
 	updated list of scripts in BundleConfig
+
+G) - Replaced rehearsals resource with service using $http
+
+	Removed angular-resource (ngResource).
+	Removed rehearsals.resource.ts from services.
+	Added rehearsalData.service.ts to services
+	Updated rehearsallis.controller and rehearsaledit.controller to use new service.

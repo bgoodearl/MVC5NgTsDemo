@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeScriptDemo.Generator", "TypeScriptDemo.Generator\TypeScriptDemo.Generator.csproj", "{7777DD9A-F5E2-441A-B07D-F32650843396}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E1AC576A-E7D7-43C4-8FA5-A4733DCA5701}"
+	ProjectSection(SolutionItems) = preProject
+		_tsGeneratorInfo.txt = _tsGeneratorInfo.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

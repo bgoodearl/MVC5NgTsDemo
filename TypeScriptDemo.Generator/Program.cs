@@ -93,6 +93,7 @@ namespace TypeScriptDemo.Generator
 
                     var generator = new TypeScriptFluent()
                         .WithConvertor<Guid>(c => "string")
+                        .WithTypeFormatter((type, f) => "I" + ((TypeLite.TsModels.TsClass)type).Name)
                         .WithMemberFormatter((identifier) =>
                             Char.ToLower(identifier.Name[0]) + identifier.Name.Substring(1));
 

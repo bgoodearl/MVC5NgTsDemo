@@ -1,0 +1,6 @@
+
+TypeScriptDemo.Generator
+
+Generates TypeScript interface declarations from C# classes.
+
+3/20/2016	Added WithTypeFormatter to prepend I in front of class name.

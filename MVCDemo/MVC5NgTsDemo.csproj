@@ -165,6 +165,8 @@
   <ItemGroup>
     <Content Include="app\layout\layout.html" />
     <Content Include="app\naverror\naverror.html" />
+    <Content Include="app\rehearsaledit\rehearsaledit.html" />
+    <Content Include="app\rehearsallist\rehearsallist.html" />
     <Content Include="app\test\test.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -228,6 +230,12 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\rehearsaledit\rehearsaledit.module.ts" />
+    <TypeScriptCompile Include="app\rehearsaledit\rehearsaledit.routes.ts" />
+    <TypeScriptCompile Include="app\rehearsaledit\rehearsaledit.controller.ts" />
+    <TypeScriptCompile Include="app\rehearsallist\rehearsallist.controller.ts" />
+    <TypeScriptCompile Include="app\rehearsallist\rehearsallist.routes.ts" />
+    <TypeScriptCompile Include="app\services\rehearsals.resource.ts" />
     <TypeScriptCompile Include="app\_app_typings.ts" />
     <TypeScriptCompile Include="app\app.config.ts" />
     <TypeScriptCompile Include="app\app.core.module.ts" />

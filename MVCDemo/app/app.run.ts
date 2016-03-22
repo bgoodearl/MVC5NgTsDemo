@@ -21,7 +21,7 @@
             //$log.log('routeChangeStart: ' + event.name);
             //$log.log('current: ');
             //$log.log(current);
-            //$log.log('next: ');
+            //$log.log('$routeChangeStart next: ');
             //$log.log(next.params);
             //$log.log(next.pathParams);
             //$log.log(next.$$route);

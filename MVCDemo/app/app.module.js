@@ -6,6 +6,8 @@
         'app.blocks',
         'app.layout',
         'app.naverror',
+        'app.rehearsaledit',
+        'app.rehearsallist',
         'app.services',
         'app.test'
     ]);

@@ -42,3 +42,10 @@ E) - Initial implementation of music app.
 
 	Defaults to test page of app  Changing route in URL or clicking on "Rehearsal List" sends app to naverror.
 
+F) - Add rehearsals controller and resource, added rehearsal edit controller.
+	(also see notes in _tsGeneratorInfo.txt)
+
+	added rehearsallist.controller, routes and html
+	added rehearsals.resource in services
+	added rehearsaledit.controller, routes and html
+	updated list of scripts in BundleConfig

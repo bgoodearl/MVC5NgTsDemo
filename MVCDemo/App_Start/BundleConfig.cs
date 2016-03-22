@@ -12,6 +12,7 @@ namespace MVCDemo
         {
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.js",
+                        "~/Scripts/angular-resource.js",
                         "~/Scripts/angular-route.js",
                         "~/Scripts/angular-sanitize.js"));
 
@@ -49,17 +50,23 @@ namespace MVCDemo
             "blocks/blocks.module.js",
             "layout/layout.module.js",
             "naverror/naverror.module.js",
+            "rehearsaledit/rehearsaledit.module.js",
             "rehearsallist/rehearsallist.module.js",
             "services/services.module.js",
             "test/test.module.js",
             // Services and Providers
             "blocks/appinfo.provider.js",
+            "services/rehearsals.resource.js",
             // Controllers
             "layout/layout.controller.js",
             "naverror/naverror.controller.js",
+            "rehearsaledit/rehearsaledit.controller.js",
+            "rehearsallist/rehearsallist.controller.js",
             "test/test.controller.js",
             // Routing
             "naverror/naverror.routes.js",
+            "rehearsaledit/rehearsaledit.routes.js",
+            "rehearsallist/rehearsallist.routes.js",
             "test/test.routes.js",
             //Core module & Run
             "app.core.module.js",

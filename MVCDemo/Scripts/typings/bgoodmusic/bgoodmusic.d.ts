@@ -1,6 +1,6 @@
 
 declare module BGoodMusic.Models.API {
-	interface Rehearsal {
+	interface IRehearsal {
 		id: number;
 		date: Date; //change from generated interface
 		time: string;

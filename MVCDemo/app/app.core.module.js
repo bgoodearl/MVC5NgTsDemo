@@ -3,7 +3,8 @@
     angular
         .module('app.core', [
         // Angular Modules
-        'ngRoute'
+        'ngRoute',
+        'ngResource'
     ]);
 })();
 //# sourceMappingURL=app.core.module.js.map

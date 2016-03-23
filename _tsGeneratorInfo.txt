@@ -3,4 +3,6 @@ TypeScriptDemo.Generator
 
 Generates TypeScript interface declarations from C# classes.
 
+3/22/2016	Tried an experiment with Json converter for Date - caused TypeScript generator to croak.
+
 3/20/2016	Added WithTypeFormatter to prepend I in front of class name.

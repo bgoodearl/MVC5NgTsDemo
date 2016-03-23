@@ -24,6 +24,13 @@ namespace TypeScriptDemo.Generator
                     GenerateTypeScriptContracts(workingFile, outputPath, verbose);
                 }
             }
+            catch (ReflectionTypeLoadException ex)
+            {
+                Console.Error.WriteLine("TypeScriptDemo.Generator error");
+                Console.Error.WriteLine("{0}: {1}", ex.GetType().Name, ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine();
+            }
             catch (Exception ex)
             {
                 Console.Error.WriteLine("TypeScriptDemo.Generator error");
@@ -63,54 +70,60 @@ namespace TypeScriptDemo.Generator
 
         private static void GenerateTypeScriptContracts(string assemblyFile, string outputPath, bool verbose)
         {
-            Console.Error.WriteLine();
-            var assembly = Assembly.LoadFrom(assemblyFile);
-            // If you want a subset of classes from this assembly, filter them here
-            var rawTypes = assembly.GetTypes().ToList();
-            if (rawTypes == null)
+            if (!Directory.Exists(outputPath))
             {
-                Console.Error.WriteLine("no models found in initial check!");
+                Console.Error.WriteLine("Output path \"{0}\" does not exist.", outputPath);
             }
             else
             {
-                Console.Error.WriteLine("Got {0} raw types.", rawTypes.Count());
-                var rawFiltered = rawTypes.Where(t => t.Namespace.EndsWith("Models.API"));
-                var models = rawFiltered.ToList();
-                if (models == null)
+                Console.Error.WriteLine();
+                var assembly = Assembly.LoadFrom(assemblyFile);
+                // If you want a subset of classes from this assembly, filter them here
+                var rawTypes = assembly.GetTypes().ToList();
+                if (rawTypes == null)
                 {
-                    Console.Error.WriteLine("no models found!");
+                    Console.Error.WriteLine("no models found in initial check!");
                 }
                 else
                 {
-                    if (verbose)
+                    Console.Error.WriteLine("Got {0} raw types.", rawTypes.Count());
+                    var rawFiltered = rawTypes.Where(t => !string.IsNullOrWhiteSpace(t.Namespace) && t.Namespace.EndsWith("Models.API"));
+                    var models = rawFiltered.ToList();
+                    if (models == null)
                     {
-                        Console.Error.WriteLine("Got {0} models.", models.Count());
+                        Console.Error.WriteLine("no models found!");
+                    }
+                    else
+                    {
+                        if (verbose)
+                        {
+                            Console.Error.WriteLine("Got {0} models.", models.Count());
+                            foreach (var model in models)
+                            {
+                                Console.Error.WriteLine("Namespace = \"{0}\", Name = \"{1}\"", model.Namespace, model.Name);
+                            }
+                        }
+
+                        var generator = new TypeScriptFluent()
+                            .WithConvertor<Guid>(c => "string")
+                            .WithTypeFormatter((type, f) => "I" + ((TypeLite.TsModels.TsClass)type).Name)
+                            .WithMemberFormatter((identifier) =>
+                                Char.ToLower(identifier.Name[0]) + identifier.Name.Substring(1));
+
                         foreach (var model in models)
                         {
-                            Console.Error.WriteLine("Namespace = \"{0}\", Name = \"{1}\"", model.Namespace, model.Name);
+                            generator.ModelBuilder.Add(model);
                         }
+
+                        //Generate enums
+                        //var tsEnumDefinitions = generator.Generate(TsGeneratorOutput.Enums);
+                        //File.WriteAllText(Path.Combine(outputPath, "enums.ts"), tsEnumDefinitions);
+                        //Generate interface definitions for all classes
+                        var tsClassDefinitions = generator.Generate(TsGeneratorOutput.Properties | TsGeneratorOutput.Fields);
+                        File.WriteAllText(Path.Combine(outputPath, "bgoodmusic.d.ts"), tsClassDefinitions);
                     }
-
-                    var generator = new TypeScriptFluent()
-                        .WithConvertor<Guid>(c => "string")
-                        .WithTypeFormatter((type, f) => "I" + ((TypeLite.TsModels.TsClass)type).Name)
-                        .WithMemberFormatter((identifier) =>
-                            Char.ToLower(identifier.Name[0]) + identifier.Name.Substring(1));
-
-                    foreach (var model in models)
-                    {
-                        generator.ModelBuilder.Add(model);
-                    }
-
-                    //Generate enums
-                    //var tsEnumDefinitions = generator.Generate(TsGeneratorOutput.Enums);
-                    //File.WriteAllText(Path.Combine(outputPath, "enums.ts"), tsEnumDefinitions);
-                    //Generate interface definitions for all classes
-                    var tsClassDefinitions = generator.Generate(TsGeneratorOutput.Properties | TsGeneratorOutput.Fields);
-                    File.WriteAllText(Path.Combine(outputPath, "bgoodmusic.d.ts"), tsClassDefinitions);
                 }
             }
-
         }
     }
 }

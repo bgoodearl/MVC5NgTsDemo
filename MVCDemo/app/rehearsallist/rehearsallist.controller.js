@@ -3,7 +3,7 @@ var app;
     var rehearsllist;
     (function (rehearsllist) {
         'use strict';
-        angular.module('app.rehearsallist').constant('rehearsallist.ctlr.ver', '0.05');
+        angular.module('app.rehearsallist').constant('rehearsallist.ctlr.ver', '0.06');
         var RehearsalListController = (function () {
             function RehearsalListController($location, $log, appInfoProvider, rehearsalSvc, ctlrVer) {
                 var _this = this;
@@ -20,7 +20,7 @@ var app;
                         _this.rehearsals = result;
                         _this.message = '';
                     }).catch(function (reason) {
-                        this.message = reason.errorMessage;
+                        _this.message = reason.errorMessage;
                     });
                 };
                 this.editRehearsal = function (id) {

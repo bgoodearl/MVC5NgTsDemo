@@ -1,7 +1,7 @@
 ﻿namespace app.rehearsllist {
     'use strict';
 
-    angular.module('app.rehearsallist').constant('rehearsallist.ctlr.ver', '0.05');
+    angular.module('app.rehearsallist').constant('rehearsallist.ctlr.ver', '0.06');
 
     interface IRehearsalListController {
         editRehearsal(id: number): void;
@@ -35,7 +35,7 @@
             this.rehearsalSvc.getAll().then((result: Array<BGoodMusic.Models.API.IRehearsal>) => {
                 this.rehearsals = result;
                 this.message = '';
-            }).catch(function (reason: app.common.IServiceError) {
+            }).catch((reason: app.common.IServiceError) => {
                 this.message = reason.errorMessage;
             });
         }

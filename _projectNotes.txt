@@ -56,3 +56,12 @@ G) - Replaced rehearsals resource with service using $http
 	Removed rehearsals.resource.ts from services.
 	Added rehearsalData.service.ts to services
 	Updated rehearsallis.controller and rehearsaledit.controller to use new service.
+
+H) - Experiment with Date handling, workaround for demo.  Other fixes.
+
+	Added Json ISO8601Converter and Newtonsoft.Json to Models project, changed type of Date field.
+	(Caused TypeScriptDemo.Generator to fail.  Removed package from Models project, ifdef'd out converter.)
+	Added object EditDate to Rehearsal API model.  Use in JavaScript to make Date type from number in date field.
+	See RehearsalEditController getRehearsal().
+	Fixed catch in rehearsallist.controller.ts.
+	Changed methods to instance methods in rehearsalData.service.ts.

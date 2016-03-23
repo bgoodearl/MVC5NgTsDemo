@@ -1,4 +1,7 @@
-﻿
+﻿//using Newtonsoft.Json;
+//using BGoodMusic.Models.Converters;
+using System;
+
 namespace BGoodMusic.Models.API
 {
     public class Rehearsal
@@ -6,9 +9,17 @@ namespace BGoodMusic.Models.API
         public int Id { get; set; }
 
         /// <summary>
-        /// Javascript Milliseconds
+        /// Using JsonConverter works in code, but adding ISO8601Converter class causes
+        /// TypeScript converter to croak in call to assembly.GetTypes().
         /// </summary>
+#if false
+        [JsonConverter(typeof(ISO8601Converter))]
+        public DateTime Date { get; set; }
+#else
         public long Date { get; set; }
+        //Placeholder for use on JavaScript side
+        public Object EditDate { get; set; }
+#endif
 
         public string Time { get; set; }
 

@@ -3,7 +3,7 @@ var app;
     var test;
     (function (test) {
         'use strict';
-        angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.08');
+        angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.10');
         var RehearsalEditController = (function () {
             function RehearsalEditController($log, $routeParams, rehearsalSvc, ctlrVer) {
                 var _this = this;
@@ -16,9 +16,12 @@ var app;
                 this.getRehearsal = function (id) {
                     _this.rehearsalSvc.getRehearsal(id).then(function (result) {
                         _this.rehearsal = result;
+                        _this.rehearsal.editDate = new Date(_this.rehearsal.date);
+                        _this.$log.log('getRehearsal(' + id + ') got:...');
+                        _this.$log.log(_this.rehearsal);
                         _this.message = '';
                     }).catch(function (reason) {
-                        this.message = reason.errorMessage;
+                        _this.message = reason.errorMessage;
                     });
                 };
                 this.saveEdit = function () {

@@ -3,60 +3,63 @@ var app;
     var services;
     (function (services) {
         'use strict';
-        angular.module('app.services').constant('rehearsalData.svc.ver', '0.04');
+        angular.module('app.services').constant('rehearsalData.svc.ver', '0.5');
         var RehearsalDataService = (function () {
-            function RehearsalDataService($http, 
-                //private $log: ng.ILogProvider,
-                $q, appInfoProvider, svcVer) {
+            function RehearsalDataService($http, $log, $q, appInfoProvider, svcVer) {
+                var _this = this;
                 this.$http = $http;
+                this.$log = $log;
                 this.$q = $q;
                 this.svcVer = svcVer;
-                console.log('construct RehearsalDataService ' + svcVer);
+                this.getAll = function () {
+                    var defer = _this.$q.defer();
+                    var promise = defer.promise;
+                    var url = _this.rootPath + 'api/rehearsals';
+                    _this.$http
+                        .get(url)
+                        .then(function (response) {
+                        _this.$log.log('getAll got');
+                        defer.resolve(response.data);
+                    })
+                        .catch(function (reason) {
+                        var irError = {
+                            status: reason.status,
+                            errorMessage: reason.statusText
+                        };
+                        if (reason.data)
+                            irError.errorMessage = reason.data;
+                        defer.reject(irError);
+                    });
+                    return promise;
+                };
+                this.getRehearsal = function (id) {
+                    var defer = _this.$q.defer();
+                    var promise = defer.promise;
+                    var url = _this.rootPath + 'api/rehearsals/' + id;
+                    _this.$http
+                        .get(url)
+                        .then(function (response) {
+                        _this.$log.log('getRehearsal got');
+                        defer.resolve(response.data);
+                    })
+                        .catch(function (reason) {
+                        _this.$log.log('getRehearsal got error');
+                        var irError = {
+                            status: reason.status,
+                            errorMessage: reason.statusText
+                        };
+                        if (reason.data)
+                            irError.errorMessage = reason.data;
+                        defer.reject(irError);
+                    });
+                    return promise;
+                };
+                $log.log('construct RehearsalDataService ' + svcVer);
                 this.appInfo = appInfoProvider.appInfo;
                 this.rootPath = this.appInfo.rootPath;
             }
-            RehearsalDataService.prototype.getAll = function () {
-                var defer = this.$q.defer();
-                var promise = defer.promise;
-                var url = this.rootPath + 'api/rehearsals';
-                this.$http
-                    .get(url)
-                    .then(function (response) {
-                    defer.resolve(response.data);
-                })
-                    .catch(function (reason) {
-                    var irError = {
-                        status: reason.status,
-                        errorMessage: reason.statusText
-                    };
-                    if (reason.data)
-                        irError.errorMessage = reason.data;
-                    defer.reject(irError);
-                });
-                return promise;
-            };
-            RehearsalDataService.prototype.getRehearsal = function (id) {
-                var defer = this.$q.defer();
-                var promise = defer.promise;
-                var url = this.rootPath + 'api/rehearsals/' + id;
-                this.$http
-                    .get(url)
-                    .then(function (response) {
-                    defer.resolve(response.data);
-                })
-                    .catch(function (reason) {
-                    var irError = {
-                        status: reason.status,
-                        errorMessage: reason.statusText
-                    };
-                    if (reason.data)
-                        irError.errorMessage = reason.data;
-                    defer.reject(irError);
-                });
-                return promise;
-            };
             RehearsalDataService.$inject = ['$http',
-                //'$log',
+                '$log',
                 '$q',
                 'app.blocks.AppInfo',
                 'rehearsalData.svc.ver'

@@ -1,7 +1,7 @@
 ﻿namespace app.test {
     'use strict';
 
-    angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.08');
+    angular.module('app.rehearsaledit').constant('rehearsaledit.ctlr.ver', '0.10');
 
     interface IRehearsalEditController {
         id: number;
@@ -37,8 +37,11 @@
         getRehearsal = (id: number): void => {
             this.rehearsalSvc.getRehearsal(id).then((result: BGoodMusic.Models.API.IRehearsal) => {
                 this.rehearsal = result;
+                this.rehearsal.editDate = new Date(this.rehearsal.date);
+                this.$log.log('getRehearsal(' + id + ') got:...');
+                this.$log.log(this.rehearsal);
                 this.message = '';
-            }).catch(function (reason: app.common.IServiceError) {
+            }).catch((reason: app.common.IServiceError) => {
                 this.message = reason.errorMessage;
             });
         }

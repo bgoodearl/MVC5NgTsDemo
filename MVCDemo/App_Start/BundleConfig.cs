@@ -14,7 +14,8 @@ namespace MVCDemo
                         "~/Scripts/angular.js",
                         "~/Scripts/angular-resource.js",
                         "~/Scripts/angular-route.js",
-                        "~/Scripts/angular-sanitize.js"));
+                        "~/Scripts/angular-sanitize.js",
+                        "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));

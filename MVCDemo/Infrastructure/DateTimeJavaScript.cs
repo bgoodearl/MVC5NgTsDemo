@@ -13,7 +13,7 @@ namespace MVCDemo.Infrastructure
             return (long)((dt.ToUniversalTime().Ticks - DatetimeMinTimeTicks) / 10000);
         }
 
-        public static DateTime UtcFromJavaScriptMilliseconds(int jsTimeMilliseconds)
+        public static DateTime UtcFromJavaScriptMilliseconds(long jsTimeMilliseconds)
         {
             return new DateTime(1970, 01, 01).ToUniversalTime().AddMilliseconds(jsTimeMilliseconds);
         }

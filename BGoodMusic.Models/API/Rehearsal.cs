@@ -1,7 +1,7 @@
 ﻿//using Newtonsoft.Json;
 //using BGoodMusic.Models.Converters;
 using System;
-
+#if false //Moved back to web app 4/1/2016
 namespace BGoodMusic.Models.API
 {
     public class Rehearsal
@@ -30,3 +30,4 @@ namespace BGoodMusic.Models.API
         public string Agenda { get; set; }
     }
 }
+#endif

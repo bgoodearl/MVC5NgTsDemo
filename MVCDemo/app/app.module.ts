@@ -10,6 +10,7 @@
             'app.rehearsaledit',
             'app.rehearsallist',
             'app.services',
-            'app.test'
+            'app.test',
+            'ui.bootstrap'
        ]);
 })();

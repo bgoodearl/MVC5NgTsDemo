@@ -235,3 +235,9 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# app js and js.map compiled from TypeScript
+MVCDemo/app/*.js
+MVCDemo/app/*.js.map
+MVCDemo/app/**/*.js
+MVCDemo/app/**/*.js.map

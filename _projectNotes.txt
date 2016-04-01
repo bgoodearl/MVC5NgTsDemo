@@ -65,3 +65,8 @@ H) - Experiment with Date handling, workaround for demo.  Other fixes.
 	See RehearsalEditController getRehearsal().
 	Fixed catch in rehearsallist.controller.ts.
 	Changed methods to instance methods in rehearsalData.service.ts.
+
+I) - UI for dates, implemented save
+
+	Updated to bootstrap 3.3.6, added Angular.UI.Bootstrap 1.2.1
+	Abandoned attempt to use TypeLite.  Use Newtonsoft.Json to convert C# date.

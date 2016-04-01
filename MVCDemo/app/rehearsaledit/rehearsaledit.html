@@ -1,4 +1,4 @@
-﻿<div data-uiver="0.4">
+﻿<div data-uiver="0.7">
     <h2 class="h5"><b>Rehearsal Edit</b></h2>
     <h3 class="h5">{{vm.message}}</h3>
     <div class="row">
@@ -7,7 +7,21 @@
                 <form name="rehearsalEdit">
                     <table>
                         <!-- type="datetime-local"  -->
-                        <tr><td>Date:</td><td><input required placeholder="rehearsal date" ng-model="vm.rehearsal.editDate" /></td></tr>
+                        <tr>
+                            <td>Date:</td>
+                            <td>
+                                <div class="input-group">
+                                    <input class="form-control input-md" close-text="Close" is-open="vm.dateOpen"
+                                           required placeholder="rehearsal date" ng-model="vm.rehearsal.editDate"
+                                           uib-datepicker-popup="M/d/yyyy" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-md btn-primary" ng-click="vm.toggleDatePopup()" type="button">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
                         <tr><td>Time:</td><td><input required placeholder="rehearsal time" ng-model="vm.rehearsal.time" /></td></tr>
                         <tr><td>Duration:</td><td><input ng-model="vm.rehearsal.duration" /></td></tr>
                         <tr><td>Location:</td><td><input ng-model="vm.rehearsal.location" /></td></tr>

@@ -1,14 +1,15 @@
-﻿
+﻿using Newtonsoft.Json;
+using MVCDemo.Infrastructure;
+using System;
+
 namespace MVCDemo.Models.API
 {
     public class Rehearsal
     {
         public int Id { get; set; }
 
-        /// <summary>
-        /// Javascript Milliseconds
-        /// </summary>
-        public long Date { get; set; }
+        [JsonConverter(typeof(ISO8601Converter))]
+        public DateTime Date { get; set; }
 
         public string Time { get; set; }
 
